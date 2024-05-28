@@ -33,7 +33,7 @@
     </div>
 </nav>
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -53,7 +53,7 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <?php echo htmlspecialchars($_SESSION['username']); ?>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end mt-2">
+                <ul class="dropdown-menu dropdown-menu mt-2">
                     <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Profile</a></li>
                     <li><a class="dropdown-item" href="logout.php"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
                 </ul>

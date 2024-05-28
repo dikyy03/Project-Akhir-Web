@@ -3,23 +3,59 @@
 $menu_items = [
     [
         'name' => 'Isi Ulang 19L',
-        'price' => 'Rp 3.000',
-        'image' => 'asset/img/galonisiulang.png'
+        'price' => 'Rp 7.000',
+        'image' => 'img/galonisiulang.jpg',
+        'description' => 'Air isi ulang RO kapasitas 19 liter.',
+        'stock' => 20
     ],
     [
         'name' => 'Isi Ulang 15L',
         'price' => 'Rp 5.000',
-        'image' => 'asset/img/galonisiulang.png'
+        'image' => 'img/galonisiulang.jpg',
+        'description' => 'Air isi ulang RO kapasitas 15 liter.',
+        'stock' => 15
     ],
     [
         'name' => 'Aqua 19L',
-        'price' => 'Rp 10.000',
-        'image' => 'asset/img/aqua.jpeg'
+        'price' => 'Rp 25.000',
+        'image' => 'img/aqua.jpg',
+        'description' => 'Air mineral Aqua dengan kapasitas 19 liter.',
+        'stock' => 10
     ],
     [
         'name' => 'Le Minerale 15L',
-        'price' => 'Rp 5.000',
-        'image' => 'asset/img/leminerale.jpg'
+        'price' => 'Rp 20.000',
+        'image' => 'img/leminerale.jpg',
+        'description' => 'Air mineral Le Minerale kapasitas 15 liter.',
+        'stock' => 5
+    ],
+    [
+        'name' => 'Cleo 19L',
+        'price' => 'Rp 18.000',
+        'image' => 'img/cleo.jpg',
+        'description' => 'Air mineral Cleo dengan kapasitas 19 liter.',
+        'stock' => 8
+    ],
+    [
+        'name' => 'Vit 19L',
+        'price' => 'Rp 16.000',
+        'image' => 'img/vit.jpg',
+        'description' => 'Air mineral Vit kapasitas 19 liter.',
+        'stock' => 12
+    ],
+    [
+        'name' => 'Aqua 19L',
+        'price' => 'Rp 25.000',
+        'image' => 'img/aqua.jpg',
+        'description' => 'Air mineral Aqua dengan kapasitas 19 liter.',
+        'stock' => 7
+    ],
+    [
+        'name' => 'Le Minerale 15L',
+        'price' => 'Rp 20.000',
+        'image' => 'img/leminerale.jpg',
+        'description' => 'Air mineral Le Minerale kapasitas 15 liter.',
+        'stock' => 3
     ]
 ];
 ?>
@@ -48,7 +84,6 @@ $menu_items = [
             color: white; 
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
-            
         }
         .card-header {
             background-color: white;
@@ -75,6 +110,8 @@ $menu_items = [
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $item['name']; ?></h5>
                                 <p class="card-text"><?php echo $item['price']; ?></p>
+                                <p class="card-text"><?php echo $item['description']; ?></p>
+                                <p class="card-text">Stok: <?php echo $item['stock']; ?></p>
                                 <a href="pesan.php?item=<?php echo urlencode($item['name']); ?>" class="btn btn-primary">Pesan</a>
                             </div>
                         </div>

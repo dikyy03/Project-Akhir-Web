@@ -19,7 +19,7 @@ if (!isset($_SESSION['user_id'])) {
     
     <style>
         .bg {
-            background-image: url('asset/img/bg2.png'); 
+            background-image: url('img/background.jpeg'); 
             background-size: cover; 
             background-position: center; 
             color: white; 
