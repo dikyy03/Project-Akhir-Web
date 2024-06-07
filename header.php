@@ -12,10 +12,10 @@
                     <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='home' || !isset($_GET['x'])) ? 'active' : '' ; ?>" aria-current="page" href="index.php?x=home"><i class="bi bi-house"></i> Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='pemesanan') ? 'active' : '' ; ?>" href="index.php?x=pemesanan"><i class="bi bi-cart4"></i> Pemesanan</a>
+                    <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='pemesanan') ? 'active' : '' ; ?>" href="index.php?x=pemesanan"><i class="bi bi-cart4"></i> Daftar Produk</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='info_pesanan') ? 'active' : '' ; ?>" href="index.php?x=info_pesanan"><i class="bi bi-info-lg"></i> Info Pesanan</a>
+                    <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='info_pesanan') ? 'active' : '' ; ?>" href="index.php?x=info_pesanan"><i class="bi bi-info-lg"></i> Riwayat Pesanan</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -44,10 +44,10 @@
                 <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='home' || !isset($_GET['x'])) ? 'active' : '' ; ?>" aria-current="page" href="index.php?x=home"><i class="bi bi-house"></i> Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='pemesanan') ? 'active' : '' ; ?>" href="index.php?x=pemesanan"><i class="bi bi-cart4"></i> Pemesanan</a>
+                <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='pemesanan') ? 'active' : '' ; ?>" href="index.php?x=pemesanan"><i class="bi bi-cart4"></i> Daftar Produk</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='info_pesanan') ? 'active' : '' ; ?>" href="index.php?x=info_pesanan"><i class="bi bi-info-lg"></i> Info Pesanan</a>
+                <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='info_pesanan') ? 'active' : '' ; ?>" href="index.php?x=info_pesanan"><i class="bi bi-info-lg"></i> Riwayat Pesanan</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

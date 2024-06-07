@@ -5,14 +5,14 @@ $menu_items = [
         'name' => 'Isi Ulang 19L',
         'price' => 'Rp 7.000',
         'image' => 'img/galonisiulang.jpg',
-        'description' => 'Air isi ulang RO kapasitas 19 liter.',
+        'description' => 'Air isi ulang RO dengan kapasitas 19 liter.',
         'stock' => 20
     ],
     [
         'name' => 'Isi Ulang 15L',
         'price' => 'Rp 5.000',
         'image' => 'img/galonisiulang.jpg',
-        'description' => 'Air isi ulang RO kapasitas 15 liter.',
+        'description' => 'Air isi ulang RO dengan kapasitas 15 liter.',
         'stock' => 15
     ],
     [
@@ -40,7 +40,7 @@ $menu_items = [
         'name' => 'Vit 19L',
         'price' => 'Rp 16.000',
         'image' => 'img/vit.jpg',
-        'description' => 'Air mineral Vit kapasitas 19 liter.',
+        'description' => 'Air mineral Vit dengan kapasitas 19 liter.',
         'stock' => 12
     ],
     [
@@ -54,7 +54,7 @@ $menu_items = [
         'name' => 'Le Minerale 15L',
         'price' => 'Rp 20.000',
         'image' => 'img/leminerale.jpg',
-        'description' => 'Air mineral Le Minerale kapasitas 15 liter.',
+        'description' => 'Air mineral Le Minerale dengan kapasitas 15 liter.',
         'stock' => 3
     ]
 ];
@@ -71,11 +71,12 @@ $menu_items = [
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         .menu-item {
-            margin-bottom: 30px;
+            flex: 0 0 auto;
+            width: 300px; /* Adjust the width as needed */
         }
         .menu-item img {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -89,8 +90,22 @@ $menu_items = [
             background-color: white;
             color: black; 
         }
-        .text-white {
-            color: white;
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+        }
+        .scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+        }
+        .scroll-container::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
         }
     </style>
 </head>
@@ -99,13 +114,13 @@ $menu_items = [
 <div class="container mt-2">
     <div class="card">
         <div class="card-header">
-            Pemesanan
+            Daftar Produk
         </div>
         <div class="card-body">
-            <div class="row">
+            <div class="scroll-container">
                 <?php foreach ($menu_items as $item): ?>
-                    <div class="col-lg-3 col-md-4 col-sm-6 menu-item">
-                        <div class="card mt-3">
+                    <div class="menu-item">
+                        <div class="card mt-">
                             <img src="<?php echo $item['image']; ?>" class="card-img-top" alt="<?php echo $item['name']; ?>">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $item['name']; ?></h5>
