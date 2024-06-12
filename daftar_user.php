@@ -3,7 +3,7 @@
         <div class="col-lg mt-2">
             <div class="card">
                 <div class="card-header">
-                    Home
+                    Daftar User
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Welcome Depot NabWater</h5>
