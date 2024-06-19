@@ -51,7 +51,7 @@
                                 <i class="bi bi-person-circle"></i>
                                 <span class="ms-1">Profile</span>
                             </a></li>
-                        <li><a class="dropdown-item" href="#">
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#ubah_password">
                                 <i class="bi bi-key"></i>
                                 <span class="ms-1">Ubah Password</span>
                             </a></li>
@@ -65,3 +65,53 @@
         </div>
     </div>
 </nav>
+
+<div class="modal fade" id="ubah_password" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-fullscreen-md-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Password</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="proses_ubah_password.php" method="POST">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input  type="text" class="form-control" id="floatingPassword" placeholder="Username" name="username" required value="<?php echo $_SESSION['username'] ?>">
+                                <label for="floatingInput">Username</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input  type="password" class="form-control" id="floatingPassword" name="password_lama" required>
+                                <label for="floatingInput">Password Lama</label>
+                                <div class="invalid-feedback">Masukkan Password Lama</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input  type="password" class="form-control" id="floatingPassword" name="password_baru" required>
+                                <label for="floatingInput">Password Baru</label>
+                                <div class="invalid-feedback">Masukkan Password Baru</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input  type="password" class="form-control" id="floatingPassword" name="konfirmasi_password_baru" required>
+                                <label for="floatingInput">Konfirmasi Password Baru</label>
+                                <div class="invalid-feedback">Masukkan Password Baru</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="ubah_password_validate">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
