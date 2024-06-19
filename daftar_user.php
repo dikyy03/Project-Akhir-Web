@@ -43,7 +43,7 @@ include "koneksi.php";
                                             <div class="col-lg-4">
                                                 <div class="form-floating mb-3">
                                                     <select class="form-select" aria-label="Default select example" name="status">
-                                                        <option selected hidden value="pelanggan">Pilih Status</option>
+                                                        <option selected hidden value="">Pilih Status</option>
                                                         <option value="admin">Admin</option>
                                                         <option value="kurir">Kurir</option>
                                                         <option value="pelanggan">Pelanggan</option>
