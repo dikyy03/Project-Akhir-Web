@@ -132,4 +132,4 @@ if (!empty($_SESSION['username'])) {
 
   </body>
 </html>
-<!--ini adalah halaman bagian login-->
+<!--ini adalah halaman login-->
