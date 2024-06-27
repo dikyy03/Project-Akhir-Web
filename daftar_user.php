@@ -24,51 +24,58 @@ include "koneksi.php";
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="proses_tambah_user.php" method="POST">
+                                    <form class="needs-validation" action="proses_tambah_user.php" method="POST" novalidate>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-floating mb-3">
                                                     <input type="text" class="form-control" id="floatingInput" placeholder="Nama" name="nama_lengkap" required>
                                                     <label for="floatingInput">Nama Lengkap</label>
+                                                    <div class="invalid-feedback">Masukkan Nama Lengkap</div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-floating mb-3">
                                                     <input type="text" class="form-control" id="floatingPassword" placeholder="Username" name="username" required>
                                                     <label for="floatingInput">Username</label>
+                                                    <div class="invalid-feedback">Masukkan Username</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" aria-label="Default select example" name="status">
+                                                    <select class="form-select" aria-label="Default select example" name="status" required>
                                                         <option selected hidden value="">Pilih Status</option>
                                                         <option value="admin">Admin</option>
                                                         <option value="kurir">Kurir</option>
                                                         <option value="pelanggan">Pelanggan</option>
                                                     </select>
                                                     <label for="floatingInput">Status User</label>
+                                                    <div class="invalid-feedback">Pilih Status</div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-8">
                                                 <div class="form-floating mb-3">
                                                     <input type="number" class="form-control" id="floatingInput" placeholder="08xxxxxxxxxxx" name="nomor_telepon" required>
-                                                    <label for="floatingInput">No Telepon</label>
+                                                    <label for="floatingInput">Nomor Telepon</label>
+                                                    <div class="invalid-feedback">Masukkan Nomor Telepon</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input type="email" class="form-control" id="floatingPassword" placeholder="name@example.com" name="email" required>
                                             <label for="floatingInput">Email</label>
+                                            <div class="invalid-feedback">Masukkan Email</div>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" disabled value="12345" name="password">
                                             <label for="floatingPassword">Password</label>
+                                            <div class="invalid-feedback">Masukkan Password</div>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <textarea class="form-control" id="" style="height: 100px " name="alamat"></textarea>
-                                            <label for="floatingInput">Alamat</label>
+                                            <textarea class="form-control" id="floatingTextarea" style="height: 100px" name="alamat" required></textarea>
+                                            <label for="floatingTextarea">Alamat</label>
+                                            <div class="invalid-feedback">Masukkan Alamat</div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -156,7 +163,6 @@ include "koneksi.php";
                             </div>
                         </div>
                     </div>
-
 
                     <div class="table-responsive">
                         <table class="table table-hover">
@@ -262,5 +268,19 @@ include "koneksi.php";
                     }
                 });
         });
+
+        // Bootstrap validation
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
     });
 </script>
