@@ -15,6 +15,7 @@ include "koneksi.php";
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah_menu">Tambah Menu</button>
                         </div>
                     </div>
+
                     <!-- Modal Tambah Menu -->
                     <div class="modal fade" id="tambah_menu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl modal-fullscreen-md-down">
@@ -109,8 +110,6 @@ include "koneksi.php";
                         </div>
                     </div>
 
-
-
                     <!-- Modal View Menu -->
                     <div class="modal fade" id="view_menu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl modal-fullscreen-md-down">
@@ -175,9 +174,8 @@ include "koneksi.php";
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-
-                                    <th scope="col">Nama Menu</th>
                                     <th scope="col">Gambar</th>
+                                    <th scope="col">Nama Menu</th>
                                     <th scope="col">Harga</th>
                                     <th scope="col">Keterangan</th>
                                     <th scope="col">Stok</th>
@@ -211,7 +209,7 @@ include "koneksi.php";
                                     }
                                 } else { ?>
                                     <tr>
-                                        <td colspan="6">Tidak ada menu</td>
+                                        <td colspan="7">Tidak ada menu</td>
                                     </tr>
                                 <?php }
                                 ?>
@@ -226,6 +224,7 @@ include "koneksi.php";
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Mengisi data pada modal view
         var viewModalMenu = document.getElementById('view_menu');
         viewModalMenu.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget;
@@ -242,33 +241,30 @@ include "koneksi.php";
             modalKeterangan.value = keterangan;
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mengisi data pada modal edit
-            var editModalMenu = document.getElementById('edit_menu');
-            editModalMenu.addEventListener('show.bs.modal', function(event) {
-                var button = event.relatedTarget;
-                var idMenu = button.getAttribute('data-id_menu');
-                var namaMenu = button.getAttribute('data-nama_menu');
-                var harga = button.getAttribute('data-harga');
-                var keterangan = button.getAttribute('data-keterangan');
-                var stok = button.getAttribute('data-stok');
+        // Mengisi data pada modal edit
+        var editModalMenu = document.getElementById('edit_menu');
+        editModalMenu.addEventListener('show.bs.modal', function(event) {
+            var button = event.relatedTarget;
+            var idMenu = button.getAttribute('data-id_menu');
+            var namaMenu = button.getAttribute('data-nama_menu');
+            var harga = button.getAttribute('data-harga');
+            var keterangan = button.getAttribute('data-keterangan');
+            var stok = button.getAttribute('data-stok');
 
-                var modalIdMenu = editModalMenu.querySelector('#edit_id_menu');
-                var modalNamaMenu = editModalMenu.querySelector('#edit_nama_menu');
-                var modalHarga = editModalMenu.querySelector('#edit_harga');
-                var modalKeterangan = editModalMenu.querySelector('#edit_keterangan');
-                var modalStok = editModalMenu.querySelector('#edit_stok');
+            var modalIdMenu = editModalMenu.querySelector('#edit_id_menu');
+            var modalNamaMenu = editModalMenu.querySelector('#edit_nama_menu');
+            var modalHarga = editModalMenu.querySelector('#edit_harga');
+            var modalKeterangan = editModalMenu.querySelector('#edit_keterangan');
+            var modalStok = editModalMenu.querySelector('#edit_stok');
 
-                modalIdMenu.value = idMenu;
-                modalNamaMenu.value = namaMenu;
-                modalHarga.value = harga;
-                modalKeterangan.value = keterangan;
-                modalStok.value = stok;
-            });
+            modalIdMenu.value = idMenu;
+            modalNamaMenu.value = namaMenu;
+            modalHarga.value = harga;
+            modalKeterangan.value = keterangan;
+            modalStok.value = stok;
         });
 
-
-
+        // Mengisi data pada modal hapus
         var hapusModalMenu = document.getElementById('hapus_menu');
         hapusModalMenu.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget;
@@ -278,6 +274,7 @@ include "koneksi.php";
             hapusIdMenu.value = idMenu;
         });
 
+        // Proses hapus menu
         document.getElementById('btnHapusMenu').addEventListener('click', function() {
             var formHapusMenu = document.getElementById('formHapusMenu');
             var formData = new FormData(formHapusMenu);

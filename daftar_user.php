@@ -57,7 +57,7 @@ include "koneksi.php";
                                             <div class="col-lg-8">
                                                 <div class="form-floating mb-3">
                                                     <input type="number" class="form-control" id="floatingInput" placeholder="08xxxxxxxxxxx" name="nomor_telepon" required>
-                                                    <label for="floatingInput">No Telepon</label>
+                                                    <label for="floatingInput">Nomor Telepon</label>
                                                     <div class="invalid-feedback">Masukkan Nomor Telepon</div>
                                                 </div>
                                             </div>

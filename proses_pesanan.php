@@ -1,47 +1,37 @@
 <?php
+session_start();
 include "koneksi.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id_menu = $_POST['id_menu'];
-    $jumlah_pesanan = $_POST['jumlah_pesanan'];
+// Tangkap data dari form
+$username = $_POST['username'];
+$alamat = $_POST['alamat'];
+$keterangan = $_POST['keterangan']; // tambahan keterangan
+$jumlah_pesanan = $_POST['jumlah_pesanan'];
+$id_menu = $_POST['id_menu'];
 
-    // Validasi jumlah pesanan (misalnya tidak boleh kurang dari 1)
-    if ($jumlah_pesanan < 1) {
-        echo "Jumlah pesanan harus lebih dari 0.";
-        exit;
-    }
+// Query untuk mendapatkan harga menu
+$query_harga_menu = "SELECT harga FROM tbl_daftar_menu WHERE id_menu = '$id_menu'";
+$result_harga_menu = $connection->query($query_harga_menu);
 
-    // Query untuk mendapatkan harga menu
-    $query_harga = "SELECT harga FROM tbl_daftar_menu WHERE id_menu = ?";
-    $stmt_harga = $connection->prepare($query_harga);
-    $stmt_harga->bind_param("i", $id_menu);
-    $stmt_harga->execute();
-    $result_harga = $stmt_harga->get_result();
-
-    if ($result_harga->num_rows > 0) {
-        $row_harga = $result_harga->fetch_assoc();
-        $harga_per_menu = $row_harga['harga'];
-    } else {
-        echo "Menu tidak ditemukan.";
-        exit;
-    }
+if ($result_harga_menu->num_rows > 0) {
+    $row_harga_menu = $result_harga_menu->fetch_assoc();
+    $harga_menu = $row_harga_menu['harga'];
 
     // Hitung total harga
-    $total_harga = $harga_per_menu * $jumlah_pesanan;
+    $total_harga = $jumlah_pesanan * $harga_menu;
 
-    // Query untuk memasukkan pesanan ke dalam database
-    $query = "INSERT INTO tbl_pesanan (id_menu, jumlah_pesanan, total_harga) VALUES (?, ?, ?)";
-    $stmt = $connection->prepare($query);
-    $stmt->bind_param("iid", $id_menu, $jumlah_pesanan, $total_harga);
+    // Query untuk memasukkan pesanan ke dalam tabel tbl_pesanan
+    $sql = "INSERT INTO tbl_pesanan (id_menu, username, alamat, keterangan, jumlah_pesanan, total_harga) 
+            VALUES ('$id_menu', '$username', '$alamat', '$keterangan', '$jumlah_pesanan', '$total_harga')";
 
-    if ($stmt->execute()) {
-        echo "Pesanan berhasil disimpan.";
+    if ($connection->query($sql) === TRUE) {
+        echo '<script>alert("Pesanan berhasil diproses."); window.location.href = "menu";</script>';
     } else {
-        echo "Gagal menyimpan pesanan: " . $stmt->error;
+        echo '<script>alert("Error: ' . $sql . '\\n' . $connection->error . '"); window.history.back();</script>';
     }
-
-    $stmt_harga->close();
-    $stmt->close();
-    $connection->close();
+} else {
+    echo '<script>alert("Menu tidak ditemukan."); window.history.back();</script>';
 }
+
+$connection->close();
 ?>
